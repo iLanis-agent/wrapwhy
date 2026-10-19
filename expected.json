@@ -1,0 +1,658 @@
+[
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "8",
+   "signed"
+  ],
+  "expected": "The 8-bit signed integer holds -128 to 127, 256 values in all. The top bit is the sign bit, so 0x80 is -128 and 0xFF is -1."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "8",
+   "unsigned"
+  ],
+  "expected": "The 8-bit unsigned integer holds 0 to 255, 256 values in all. Adding 1 to 255 wraps to 0, and taking 1 from 0 wraps to 255."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "16",
+   "signed"
+  ],
+  "expected": "The 16-bit signed integer holds -32768 to 32767, 65536 values in all. The top bit is the sign bit, so 0x8000 is -32768 and 0xFFFF is -1."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "16",
+   "unsigned"
+  ],
+  "expected": "The 16-bit unsigned integer holds 0 to 65535, 65536 values in all. Adding 1 to 65535 wraps to 0, and taking 1 from 0 wraps to 65535."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "32",
+   "signed"
+  ],
+  "expected": "The 32-bit signed integer holds -2147483648 to 2147483647, 4294967296 values in all. The top bit is the sign bit, so 0x80000000 is -2147483648 and 0xFFFFFFFF is -1."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "32",
+   "unsigned"
+  ],
+  "expected": "The 32-bit unsigned integer holds 0 to 4294967295, 4294967296 values in all. Adding 1 to 4294967295 wraps to 0, and taking 1 from 0 wraps to 4294967295."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "64",
+   "signed"
+  ],
+  "expected": "The 64-bit signed integer holds -9223372036854775808 to 9223372036854775807, 18446744073709551616 values in all. The top bit is the sign bit, so 0x8000000000000000 is -9223372036854775808 and 0xFFFFFFFFFFFFFFFF is -1."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "64",
+   "unsigned"
+  ],
+  "expected": "The 64-bit unsigned integer holds 0 to 18446744073709551615, 18446744073709551616 values in all. Adding 1 to 18446744073709551615 wraps to 0, and taking 1 from 0 wraps to 18446744073709551615."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   " 8 ",
+   " signed "
+  ],
+  "expected": "The 8-bit signed integer holds -128 to 127, 256 values in all. The top bit is the sign bit, so 0x80 is -128 and 0xFF is -1."
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "12",
+   "signed"
+  ],
+  "expected": "ERR:width must be 8, 16, 32 or 64 bits"
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "8",
+   "both"
+  ],
+  "expected": "ERR:kind must be signed or unsigned"
+ },
+ {
+  "fn": "rangeTruth",
+  "args": [
+   "",
+   ""
+  ],
+  "expected": "ERR:width must be 8, 16, 32 or 64 bits"
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "128",
+   "8",
+   "signed"
+  ],
+  "expected": "128 does not fit in 8-bit signed (-128 to 127). Keeping the low 8 bits gives 0x80, which reads as -128 (128 minus 256)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "127",
+   "8",
+   "signed"
+  ],
+  "expected": "127 fits in 8-bit signed (-128 to 127), so it is stored unchanged as 0x7F."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "-128",
+   "8",
+   "signed"
+  ],
+  "expected": "-128 fits in 8-bit signed (-128 to 127), so it is stored unchanged as 0x80."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "-129",
+   "8",
+   "signed"
+  ],
+  "expected": "-129 does not fit in 8-bit signed (-128 to 127). Keeping the low 8 bits gives 0x7F, which reads as 127 (-129 plus 256)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "256",
+   "8",
+   "unsigned"
+  ],
+  "expected": "256 does not fit in 8-bit unsigned (0 to 255). Keeping the low 8 bits gives 0x00, which reads as 0 (256 minus 256)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "255",
+   "8",
+   "unsigned"
+  ],
+  "expected": "255 fits in 8-bit unsigned (0 to 255), so it is stored unchanged as 0xFF."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "-1",
+   "8",
+   "unsigned"
+  ],
+  "expected": "-1 does not fit in 8-bit unsigned (0 to 255). Keeping the low 8 bits gives 0xFF, which reads as 255 (-1 plus 256)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "0",
+   "8",
+   "unsigned"
+  ],
+  "expected": "0 fits in 8-bit unsigned (0 to 255), so it is stored unchanged as 0x00."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "2147483648",
+   "32",
+   "signed"
+  ],
+  "expected": "2147483648 does not fit in 32-bit signed (-2147483648 to 2147483647). Keeping the low 32 bits gives 0x80000000, which reads as -2147483648 (2147483648 minus 4294967296)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "4294967296",
+   "32",
+   "unsigned"
+  ],
+  "expected": "4294967296 does not fit in 32-bit unsigned (0 to 4294967295). Keeping the low 32 bits gives 0x00000000, which reads as 0 (4294967296 minus 4294967296)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "600",
+   "8",
+   "unsigned"
+  ],
+  "expected": "600 does not fit in 8-bit unsigned (0 to 255). Keeping the low 8 bits gives 0x58, which reads as 88 (600 minus 2 x 256)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "-600",
+   "8",
+   "signed"
+  ],
+  "expected": "-600 does not fit in 8-bit signed (-128 to 127). Keeping the low 8 bits gives 0xA8, which reads as -88 (-600 plus 2 x 256)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "32768",
+   "16",
+   "signed"
+  ],
+  "expected": "32768 does not fit in 16-bit signed (-32768 to 32767). Keeping the low 16 bits gives 0x8000, which reads as -32768 (32768 minus 65536)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "65536",
+   "16",
+   "unsigned"
+  ],
+  "expected": "65536 does not fit in 16-bit unsigned (0 to 65535). Keeping the low 16 bits gives 0x0000, which reads as 0 (65536 minus 65536)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "9223372036854775808",
+   "64",
+   "signed"
+  ],
+  "expected": "9223372036854775808 does not fit in 64-bit signed (-9223372036854775808 to 9223372036854775807). Keeping the low 64 bits gives 0x8000000000000000, which reads as -9223372036854775808 (9223372036854775808 minus 18446744073709551616)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "18446744073709551616",
+   "64",
+   "unsigned"
+  ],
+  "expected": "18446744073709551616 does not fit in 64-bit unsigned (0 to 18446744073709551615). Keeping the low 64 bits gives 0x0000000000000000, which reads as 0 (18446744073709551616 minus 18446744073709551616)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "-9223372036854775809",
+   "64",
+   "signed"
+  ],
+  "expected": "-9223372036854775809 does not fit in 64-bit signed (-9223372036854775808 to 9223372036854775807). Keeping the low 64 bits gives 0x7FFFFFFFFFFFFFFF, which reads as 9223372036854775807 (-9223372036854775809 plus 18446744073709551616)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "1000000",
+   "16",
+   "signed"
+  ],
+  "expected": "1000000 does not fit in 16-bit signed (-32768 to 32767). Keeping the low 16 bits gives 0x4240, which reads as 16960 (1000000 minus 15 x 65536)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "-1",
+   "64",
+   "unsigned"
+  ],
+  "expected": "-1 does not fit in 64-bit unsigned (0 to 18446744073709551615). Keeping the low 64 bits gives 0xFFFFFFFFFFFFFFFF, which reads as 18446744073709551615 (-1 plus 18446744073709551616)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "300",
+   "8",
+   "signed"
+  ],
+  "expected": "300 does not fit in 8-bit signed (-128 to 127). Keeping the low 8 bits gives 0x2C, which reads as 44 (300 minus 256)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "99999999999999999999999999999999999999",
+   "64",
+   "unsigned"
+  ],
+  "expected": "99999999999999999999999999999999999999 does not fit in 64-bit unsigned (0 to 18446744073709551615). Keeping the low 64 bits gives 0x098A223FFFFFFFFF, which reads as 687399551400673279 (99999999999999999999999999999999999999 minus 5421010862427522170 x 18446744073709551616)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "-99999999999999999999999999999999999999",
+   "32",
+   "signed"
+  ],
+  "expected": "-99999999999999999999999999999999999999 does not fit in 32-bit signed (-2147483648 to 2147483647). Keeping the low 32 bits gives 0x00000001, which reads as 1 (-99999999999999999999999999999999999999 plus 23283064365386962890625000000 x 4294967296)."
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "1.5",
+   "8",
+   "signed"
+  ],
+  "expected": "ERR:value must be a whole number of at most 40 digits"
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "abc",
+   "8",
+   "signed"
+  ],
+  "expected": "ERR:value must be a whole number of at most 40 digits"
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "",
+   "8",
+   "signed"
+  ],
+  "expected": "ERR:value must be a whole number of at most 40 digits"
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "12345678901234567890123456789012345678901",
+   "8",
+   "signed"
+  ],
+  "expected": "ERR:value must be a whole number of at most 40 digits"
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "5",
+   "7",
+   "signed"
+  ],
+  "expected": "ERR:width must be 8, 16, 32 or 64 bits"
+ },
+ {
+  "fn": "wrapTruth",
+  "args": [
+   "5",
+   "8",
+   "other"
+  ],
+  "expected": "ERR:kind must be signed or unsigned"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-1",
+   "8",
+   "signed",
+   "32",
+   "unsigned"
+  ],
+  "expected": "-1 as 8-bit signed is 0xFF. As 32-bit unsigned it is 4294967295 (0xFFFFFFFF), because the sign bit is copied into the new top bits. The value changes from -1 to 4294967295."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "255",
+   "8",
+   "unsigned",
+   "8",
+   "signed"
+  ],
+  "expected": "255 as 8-bit unsigned is 0xFF. As 8-bit signed it is -1 (0xFF), because the same bits are read with the other sign rule. The value changes from 255 to -1."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-1",
+   "8",
+   "signed",
+   "32",
+   "signed"
+  ],
+  "expected": "-1 as 8-bit signed is 0xFF. As 32-bit signed it is -1 (0xFFFFFFFF), because the sign bit is copied into the new top bits. The value is unchanged."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "200",
+   "8",
+   "unsigned",
+   "32",
+   "signed"
+  ],
+  "expected": "200 as 8-bit unsigned is 0xC8. As 32-bit signed it is 200 (0x000000C8), because the new top bits are zeros. The value is unchanged."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "300",
+   "16",
+   "signed",
+   "8",
+   "unsigned"
+  ],
+  "expected": "300 as 16-bit signed is 0x012C. As 8-bit unsigned it is 44 (0x2C), because only the low 8 bits are kept. The value changes from 300 to 44."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "70000",
+   "32",
+   "signed",
+   "16",
+   "signed"
+  ],
+  "expected": "70000 as 32-bit signed is 0x00011170. As 16-bit signed it is 4464 (0x1170), because only the low 16 bits are kept. The value changes from 70000 to 4464."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "5",
+   "8",
+   "signed",
+   "8",
+   "signed"
+  ],
+  "expected": "5 as 8-bit signed is 0x05. As 8-bit signed it is 5 (0x05), because the bits are the same. The value is unchanged."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "5",
+   "8",
+   "signed",
+   "8",
+   "unsigned"
+  ],
+  "expected": "5 as 8-bit signed is 0x05. As 8-bit unsigned it is 5 (0x05), because the same bits are read with the other sign rule. The value is unchanged."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-5",
+   "8",
+   "signed",
+   "8",
+   "unsigned"
+  ],
+  "expected": "-5 as 8-bit signed is 0xFB. As 8-bit unsigned it is 251 (0xFB), because the same bits are read with the other sign rule. The value changes from -5 to 251."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "0",
+   "64",
+   "unsigned",
+   "8",
+   "signed"
+  ],
+  "expected": "0 as 64-bit unsigned is 0x0000000000000000. As 8-bit signed it is 0 (0x00), because only the low 8 bits are kept. The value is unchanged."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-2147483648",
+   "32",
+   "signed",
+   "64",
+   "unsigned"
+  ],
+  "expected": "-2147483648 as 32-bit signed is 0x80000000. As 64-bit unsigned it is 18446744071562067968 (0xFFFFFFFF80000000), because the sign bit is copied into the new top bits. The value changes from -2147483648 to 18446744071562067968."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "4294967295",
+   "32",
+   "unsigned",
+   "32",
+   "signed"
+  ],
+  "expected": "4294967295 as 32-bit unsigned is 0xFFFFFFFF. As 32-bit signed it is -1 (0xFFFFFFFF), because the same bits are read with the other sign rule. The value changes from 4294967295 to -1."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "4294967295",
+   "32",
+   "unsigned",
+   "64",
+   "signed"
+  ],
+  "expected": "4294967295 as 32-bit unsigned is 0xFFFFFFFF. As 64-bit signed it is 4294967295 (0x00000000FFFFFFFF), because the new top bits are zeros. The value is unchanged."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "18446744073709551615",
+   "64",
+   "unsigned",
+   "64",
+   "signed"
+  ],
+  "expected": "18446744073709551615 as 64-bit unsigned is 0xFFFFFFFFFFFFFFFF. As 64-bit signed it is -1 (0xFFFFFFFFFFFFFFFF), because the same bits are read with the other sign rule. The value changes from 18446744073709551615 to -1."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-1",
+   "64",
+   "signed",
+   "8",
+   "unsigned"
+  ],
+  "expected": "-1 as 64-bit signed is 0xFFFFFFFFFFFFFFFF. As 8-bit unsigned it is 255 (0xFF), because only the low 8 bits are kept. The value changes from -1 to 255."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "65535",
+   "16",
+   "unsigned",
+   "8",
+   "signed"
+  ],
+  "expected": "65535 as 16-bit unsigned is 0xFFFF. As 8-bit signed it is -1 (0xFF), because only the low 8 bits are kept. The value changes from 65535 to -1."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-32768",
+   "16",
+   "signed",
+   "8",
+   "signed"
+  ],
+  "expected": "-32768 as 16-bit signed is 0x8000. As 8-bit signed it is 0 (0x00), because only the low 8 bits are kept. The value changes from -32768 to 0."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "128",
+   "16",
+   "signed",
+   "8",
+   "signed"
+  ],
+  "expected": "128 as 16-bit signed is 0x0080. As 8-bit signed it is -128 (0x80), because only the low 8 bits are kept. The value changes from 128 to -128."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "127",
+   "8",
+   "signed",
+   "16",
+   "unsigned"
+  ],
+  "expected": "127 as 8-bit signed is 0x7F. As 16-bit unsigned it is 127 (0x007F), because the new top bits are zeros. The value is unchanged."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-129",
+   "16",
+   "signed",
+   "8",
+   "signed"
+  ],
+  "expected": "-129 as 16-bit signed is 0xFF7F. As 8-bit signed it is 127 (0x7F), because only the low 8 bits are kept. The value changes from -129 to 127."
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "128",
+   "8",
+   "signed",
+   "16",
+   "signed"
+  ],
+  "expected": "ERR:128 does not fit in 8-bit signed (-128 to 127)"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "256",
+   "8",
+   "unsigned",
+   "16",
+   "signed"
+  ],
+  "expected": "ERR:256 does not fit in 8-bit unsigned (0 to 255)"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "-1",
+   "8",
+   "unsigned",
+   "16",
+   "signed"
+  ],
+  "expected": "ERR:-1 does not fit in 8-bit unsigned (0 to 255)"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "1",
+   "x",
+   "signed",
+   "8",
+   "signed"
+  ],
+  "expected": "ERR:width must be 8, 16, 32 or 64 bits"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "1",
+   "8",
+   "signed",
+   "9",
+   "signed"
+  ],
+  "expected": "ERR:width must be 8, 16, 32 or 64 bits"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "1",
+   "8",
+   "wide",
+   "8",
+   "signed"
+  ],
+  "expected": "ERR:kind must be signed or unsigned"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "1",
+   "8",
+   "signed",
+   "8",
+   "wide"
+  ],
+  "expected": "ERR:kind must be signed or unsigned"
+ },
+ {
+  "fn": "castTruth",
+  "args": [
+   "z",
+   "8",
+   "signed",
+   "8",
+   "signed"
+  ],
+  "expected": "ERR:value must be a whole number of at most 40 digits"
+ }
+]
